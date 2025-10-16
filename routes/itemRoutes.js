@@ -43,7 +43,7 @@ const deleteImageFile = (imagePath) => {
 };
 
 // GET all items
-router.get("/", authMiddleware, async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const items = await Item.find();
     res.json(items);
@@ -53,7 +53,7 @@ router.get("/", authMiddleware, async (req, res, next) => {
 });
 
 // GET one item by ID
-router.get("/:id", authMiddleware, async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const item = await Item.findById(req.params.id);
     if (!item) {
